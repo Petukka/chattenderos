@@ -12,6 +12,16 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <script>
+      var host = location.origin.replace(/^http/, 'ws')
+      var ws = new WebSocket(host);
+      ws.onmessage = function (event) {
+        var li = document.createElement('li');
+        li.innerHTML = JSON.parse(event.data);
+        document.querySelector('#pings').appendChild(li);
+      };
+    </script>
     
     <title>Chattenderos</title>
   </head>
