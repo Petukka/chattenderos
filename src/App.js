@@ -1,26 +1,55 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+import Header from "./Header";
+import LogIn from "./LogIn";
+import ChatPage from "./ChatPage";
+
+class App extends React.Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      page: 'main',
+      name: ''
+    }
+
+    this.handleEvent = this.handleEvent.bind(this);
+  }
+
+
+
+  handleEvent(action) {
+    this.setState({
+        page: action.page,
+        name: action.name
+    });
+
+  }
+
+  render() {
+    if (this.state.page === "main") {
+      return (
+        <div>
+          <Header />
+          <LogIn handlePage={this.handleEvent}/>
+          
+        </div>
+      )
+    }
+
+    if (this.state.page === "login") {
+      return (
+        <div>
+          <Header />
+          <ChatPage name={this.state.name}/>
+        </div>
+      )
+    }
+    
+  }
 }
 
 export default App;
