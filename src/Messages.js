@@ -51,10 +51,10 @@ class Messages extends React.Component {
         if (this.state.loader === false) {
             return (
                 <div>
-                    <ul>
+                    <ul class="list-group">
                         {this.state.messages.map((message) => {
                             return (
-                                <li key={message.id}>
+                                <li class="list-group-item" key={message.id}>
                                     <div>
                                         <p>{message.text}</p>
                                     </div>

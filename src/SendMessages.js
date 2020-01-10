@@ -1,5 +1,6 @@
 import React from "react";
 import Chatkit from "@pusher/chatkit-client";
+import Button from 'react-bootstrap/Button';
 
 
 class SendMessages extends React.Component {
@@ -42,12 +43,16 @@ class SendMessages extends React.Component {
     }
 
     handleSend () {
-        console.log(this.props.name + ": " + this.state.message);
+        if (this.state.message !== "") {
+            this.currentUser.sendSimpleMessage({
+                roomId: this.state.room,
+                text: this.props.name + ": " + this.state.message
+            });
 
-        this.currentUser.sendSimpleMessage({
-            roomId: this.state.room,
-            text: this.props.name + ": " + this.state.message
-        });
+            this.setState({
+                message: ""
+            });
+        }
 
     }
 
@@ -68,7 +73,7 @@ class SendMessages extends React.Component {
                     value={this.state.message} 
                     onChange={this.handleChange} 
                     onKeyDown={this.handleKey}></input>
-                    <button type="button" onClick={() =>this.handleSend()}>Send</button>
+                    <Button class="btn" variant="primary" type="button" onClick={() =>this.handleSend()}>Send</Button>
                 </form>
             </div>
         );

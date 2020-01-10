@@ -4,7 +4,9 @@ class Header extends React.Component {
 
     render() {
         return (
-            <h1>Chattenderos</h1>
+            <div class="sticky-top">
+                <h1>Chattenderos</h1>
+            </div>
         );
     }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 
@@ -26,6 +27,12 @@ class App extends React.Component {
         page: action.page,
         name: action.name
     });
+
+    if (this.state.name === "") {
+      this.setState({
+        name: "Anonymous"
+      });
+    }
 
   }
 

@@ -1,4 +1,5 @@
 import React from "react";
+import Button from 'react-bootstrap/Button';
 
 class LogIn extends React.Component {
     constructor() {
@@ -25,7 +26,7 @@ class LogIn extends React.Component {
                 value={this.state.name} 
                 onChange={this.handleChange}></input>
 
-                <button type="submit">Log In</button>
+                <Button class="btn" variant="primary" type="submit">Log In</Button>
             </form>
         );
     }
