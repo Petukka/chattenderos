@@ -67,7 +67,7 @@ class SendMessages extends React.Component {
     render() {
         
         return (
-            <div>
+            <div class="inputfield">
                 <form>
                     <input
                     value={this.state.message} 
