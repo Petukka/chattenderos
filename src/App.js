@@ -28,11 +28,11 @@ class App extends React.Component {
         name: action.name
     });
 
-    if (this.state.name === "") {
-      this.setState({
-        name: "Anonymous"
-      });
-    }
+    // if (this.state.name === "") {
+    //   this.setState({
+    //     name: "Anonymous"
+    //   });
+    // }
 
   }
 
